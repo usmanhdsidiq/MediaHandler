@@ -1,0 +1,5 @@
+runtime: nodejs22
+instance_class: F1
+env: standard
+env_variables:
+    DATABASE_URL: "postgresql://postgres:whoami0822@34.101.59.31:5432/binar_chapter6?schema=public"
