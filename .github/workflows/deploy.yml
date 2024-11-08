@@ -10,6 +10,14 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+      - name: Download Cloud SQL Auth Proxy
+        run: wget https://dl.google.com/cloudsql/cloud_sql_proxy.linux.amd64 -O cloud_sql_proxy && chmod +x cloud_sql_proxy
+
+      - name: Run Cloud SQL Auth Proxy
+        run: ./cloud_sql_proxy -instances="your-project-id:region:instance-id"=tcp:3306 &
+        env:
+          GOOGLE_APPLICATION_CREDENTIALS: ${{ secrets.GCP_SA_KEY }}
+
       - name: Checkout code
         uses: actions/checkout@v3
 
