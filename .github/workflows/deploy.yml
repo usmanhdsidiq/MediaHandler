@@ -60,7 +60,7 @@ jobs:
 
           gcloud auth list
 
-          gcloud run deploy githubActionDeploy \
+          gcloud run deploy githubactiondeploy \
             --source . \
             --platform managed \
             --region asia-southeast2 \
