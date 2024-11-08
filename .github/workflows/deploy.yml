@@ -37,9 +37,9 @@ jobs:
         run: npx prisma migrate deploy
 
       - name: Check Prisma Migrations
-        run: echo "DATABASE_URL is set"
         env:
-            DATABASE_URL: ${{ secrets.DATABASE_URL }}
+          DATABASE_URL: ${{ secrets.DATABASE_URL }}
+        run: echo "DATABASE_URL is set"
 
       - name: Deploy to Cloud Run
         run: |
