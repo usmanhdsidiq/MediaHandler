@@ -61,25 +61,8 @@ jobs:
           gcloud auth list
 
           gcloud run deploy githubActionDeploy \
-            --service githubActionDeploy \
             --source . \
             --platform managed \
             --region asia-southeast2 \
             --project encoded-yen-440913-i1 \
             --allow-unauthenticated
-
-      - name: Set Google Cloud Project
-        run: |
-          gcloud config set project encoded-yen-440913-i1
-          gcloud config set run/region asia-southeast2
-
-      - name: Deploy with Dry Run
-        run: |
-          gcloud run deploy githubActionDeploy \
-            --service githubActionDeploy \
-            --source . \
-            --platform managed \
-            --region asia-southeast2 \
-            --project encoded-yen-440913-i1 \
-            --allow-unauthenticated \
-            --no-deploy
