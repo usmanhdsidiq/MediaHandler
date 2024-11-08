@@ -52,5 +52,9 @@ jobs:
       - name: Deploy to Cloud Run
         run: |
           gcloud run deploy githubActionDeploy \
+            --source . \
             --platform managed \
+            --region asia-southeast2  \
+            --project encoded-yen-440913-i1 \
             --allow-unauthenticated
+      
