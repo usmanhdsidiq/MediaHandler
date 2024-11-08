@@ -52,6 +52,7 @@ jobs:
       - name: Deploy to Cloud Run
         run: |
           gcloud run deploy githubActionDeploy \
+            --service githubActionDeploy \
             --source . \
             --platform managed \
             --region asia-southeast2 \
