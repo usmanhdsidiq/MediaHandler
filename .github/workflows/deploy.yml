@@ -56,10 +56,13 @@ jobs:
       - name: Configure Docker to use gcloud as a credential helper
         run: gcloud auth configure-docker asia-southeast2-docker.pkg.dev
 
-      - name: Build and push Docker image
+      - name: Build Docker image
         run: |
-          docker build -t asia-southeast2-docker.pkg.dev/encoded-yen-440913-i1/my-repo/githubactiondeploy:latest .
-          docker push asia-southeast2-docker.pkg.dev/encoded-yen-440913-i1/my-repo/githubactiondeploy:latest
+          docker build -t asia-southeast2-docker.pkg.dev/encoded-yen-440913-i1/my-repo/githubActionDeploy:latest .
+
+      - name: Push Docker image to Artifact Registry
+        run: |
+          docker push asia-southeast2-docker.pkg.dev/encoded-yen-440913-i1/my-repo/githubActionDeploy:latest
 
       - name: Deploy to Cloud Run
         run: |
