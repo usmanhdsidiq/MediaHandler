@@ -14,7 +14,7 @@ jobs:
         run: wget https://dl.google.com/cloudsql/cloud_sql_proxy.linux.amd64 -O cloud_sql_proxy && chmod +x cloud_sql_proxy
 
       - name: Run Cloud SQL Auth Proxy
-        run: ./cloud_sql_proxy -instances="your-project-id:region:instance-id"=tcp:3306 &
+        run: ./cloud_sql_proxy -instances="encoded-yen-440913-i1:region:instance-id"=tcp:3306 &
         env:
           GOOGLE_APPLICATION_CREDENTIALS: ${{ secrets.GCP_SA_KEY }}
 
@@ -25,7 +25,6 @@ jobs:
         uses: google-github-actions/auth@v1.1.0
         with:
           credentials_json: ${{ secrets.GCP_SA_KEY }}
-          project_id: encoded-yen-440913-i1
 
       - name: Set up Google Cloud SDK
         uses: google-github-actions/setup-gcloud@v1.1.0
@@ -67,9 +66,8 @@ jobs:
       - name: Deploy to Cloud Run
         run: |
           gcloud run deploy githubactiondeploy \
-            --image asia-southeast2-docker.pkg.dev/encoded-yen-440913-i1/my-repo/githubActionDeploy:latest \
+            --image asia-southeast2-docker.pkg.dev/encoded-yen-440913-i1/my-repo/githubactiondeploy:latest \
             --platform managed \
             --region asia-southeast2 \
             --project encoded-yen-440913-i1 \
             --allow-unauthenticated
-            --no-source
