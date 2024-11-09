@@ -58,8 +58,8 @@ jobs:
 
       - name: Build and push Docker image
         run: |
-          docker build -t asia-southeast2-docker.pkg.dev/encoded-yen-440913-i1/my-repo/githubActionDeploy:latest .
-          docker push asia-southeast2-docker.pkg.dev/encoded-yen-440913-i1/my-repo/githubActionDeploy:latest
+          docker build -t asia-southeast2-docker.pkg.dev/encoded-yen-440913-i1/my-repo/githubactiondeploy:latest .
+          docker push asia-southeast2-docker.pkg.dev/encoded-yen-440913-i1/my-repo/githubactiondeploy:latest
 
       - name: Deploy to Cloud Run
         run: |
